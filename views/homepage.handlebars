@@ -2,9 +2,11 @@
 {{#each blogpost as |blogpost|}}
 <div class="">
     <h2>
-        <a href="/blogpost/{{blogpost.id}}">{{blogpost.name}}</a>
+        <a href="/blogpost/{{blogpost.id}}">{{blogpost.title}}</a>
     </h2>
     <p>
         {{blogpost.content}}
     </p>
+    <p>Created by {{blogpost.user.name}} on {{format_date blogpost.date_created}}</p>
 </div>
+{{/each}}
