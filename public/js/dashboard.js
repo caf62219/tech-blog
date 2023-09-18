@@ -1,6 +1,6 @@
 document
 .querySelector('#newpost-btn')
-.addEventListener('click', document.location.replace('/dashboard'));
+.addEventListener('click', document.location.replace('/blogpost/'));
 
 const newFormHandler = async (event) => {
     event.preventDefault();
