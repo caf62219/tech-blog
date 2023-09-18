@@ -1,28 +1,16 @@
-<div class="row">
+{{#if logged_in}}
+<div class="row text-center">
   <div class="col-auto">
     <h2>Welcome, {{name}}!</h2>
   </div>
 </div>
 
 <div class="row mt-4">
-  <div class="col-md-6">
-    <h3>Create a New Blog Post:</h3>
+  <div class="col-md-4">
+        <button class="btn btn-lg btn-primary " id="newpost-btn" >Add New Blog Post</button>
+      </div>
 
-    <form class="form blogpost-form">
-      <div class="form-group">
-        <label for="blogpost-title">Blog Post title:</label>
-        <input class="form-input" type="text" id="blogpost-title" name="blogpost-title" />
-      </div>
-      <div class="form-group">
-        <label for="blogpost-content">Content:</label>
-        <textarea class="form-input" id="blogpost-content" name="blogpost-content"></textarea>
-      </div>
-      <div class="form-group">
-        <button type="submit" class="btn btn-primary">Post</button>
-      </div>
-    </form>
-  </div>
-
+{{#if blogposts.length}}
    <div class="col-md-6 blogpost-list">
     <h3>Current Blog Posts:</h3>
 
@@ -32,12 +20,14 @@
         <h4><a href="/blogpost/{{blogpost.id}}">{{blogpost.title}}</a></h4>
       </div>
       <div class="col-md-4">
-        <button class="btn btn-sm btn-danger" data-id="{{blogpost.id}}">DELETE</button>
+        <button class="btn btn-sm btn-danger " data-id="{{blogpost.id}}">DELETE</button>
       </div>
     </div>
     {{/each}}
   </div>
+  {{/if}}
  
 </div>
 
 <script src="./js/dashboard.js"></script>
+{{/if}}

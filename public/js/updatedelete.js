@@ -4,8 +4,9 @@ const newFormHandler = async (event) => {
     const title = document.querySelector('#update-title').value.trim();
    const content = document.querySelector('#update-content').value.trim();
   
+   const id= event.target.dataset.id 
     if (title && content) {
-      const response = await fetch(`/api/blogpost`, {
+      const response = await fetch(`/api/blogpost/${id}`, {
         method: 'PUT',
         body: JSON.stringify({ title, content }),
         headers: {
@@ -39,8 +40,9 @@ const newFormHandler = async (event) => {
   
   document
     .querySelector('.update-form')
+    
     .addEventListener('submit', newFormHandler);
   
   document
-    .querySelector('.blogpost-list')
+    .querySelector('.blogpost-delete')
     .addEventListener('click', delButtonHandler);

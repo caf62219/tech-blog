@@ -1,29 +1,12 @@
-<div class="row">
-  <div class="col-auto text-center">
-    <h2>Welcome, {{name}}!</h2>
-    <h3> Update or Delete your Blog Post</h3>
+<div class="text-center" >
+  <h2 id="bp-h">{{title}}</h2>
+  <p id="bp-p">{{content}}</p>
+  <p>Created by {{user.name}} on {{format_date date_created}}</p>
+
+  {{> updatedelete this}}
+  <div class=" text-center">
+       <button class="btn btn-sm btn-danger blogpost-delete" data-id="{{id}}">DELETE</button>
   </div>
 </div>
 
-  <form class="form update-form">
-      <div class="form-group">
-        <label for="update-title">Blog Post title:</label>
-        <input class="form-input" type="text" id="update-title" name="update-title" value="{{blogpost.title}}"/>
-      </div>
-      <div class="form-group">
-        <label for="update-content">Content:</label>
-        <textarea class="form-input" id="blogpost-content" name="blogpost-content"></textarea>
-      </div>
-      <div class="form-group">
-        <button type="submit" class="btn btn-primary">Submit Update</button>
-      </div>
-  </form>
-  <div class="col-md-4">
-        <button class="btn btn-sm btn-danger" data-id="{{blogpost.id}}">DELETE</button>
-  </div>
-
-  
- 
-</div>
-
-<script src="./js/updatedelete.js"></script>
+<script src="/js/updatedelete.js"></script>

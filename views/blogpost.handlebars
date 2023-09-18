@@ -1,5 +1,26 @@
-<div class="text-center">
-  <h2>{{title}}</h2>
-  <p>{{content}}</p>
+<div class="text-center" >
+  <h2 id="bp-h">{{title}}</h2>
+  <p id="bp-p">{{content}}</p>
   <p>Created by {{user.name}} on {{format_date date_created}}</p>
-</div>
+ {{#if comment.comment_info.length}}
+ <div>
+
+ <h5>Comments:</h5>
+ {{#each comment as |comment|}}
+        <p>
+            {{comment.comment_info}}
+        </p>
+        <p>
+            Added by: {{user.name}}, {{comment.date_created}}
+        </p>
+{{/each}}
+</div> 
+{{/if}}
+
+{{#if logged_in}}
+
+{{> comment this}}
+
+{{/if}}
+
+<script src="/js/comment.js"></script>

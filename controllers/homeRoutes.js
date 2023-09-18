@@ -11,6 +11,10 @@ router.get('/', async (req, res) => {
             model: User,
             attributes: ['name'],
           },
+          {
+            model: Comment,
+            attributes: ['comment_info']
+          }
         ],
       });
   
@@ -79,5 +83,8 @@ router.get('/', async (req, res) => {
     res.render('login');
   });
   
+  router.get('/*', (req, res) => {
+    res.redirect('/');
+  });
   module.exports = router;
   

@@ -12,3 +12,9 @@ body {
     background: tan !important;
 }
 
+#bp-h {
+    font-size: 50px;
+}
+#bp-p {
+    font-size: 30px;
+}

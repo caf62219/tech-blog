@@ -1,3 +1,7 @@
+document
+.querySelector('#newpost-btn')
+.addEventListener('click', document.location.replace('/dashboard'));
+
 const newFormHandler = async (event) => {
     event.preventDefault();
   
