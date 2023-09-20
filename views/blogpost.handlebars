@@ -1,20 +1,22 @@
+<div>
 <div class="text-center" >
   <h2 id="bp-h">{{title}}</h2>
   <p id="bp-p">{{content}}</p>
   <p>Created by {{user.name}} on {{format_date date_created}}</p>
- {{#if comment.comment_info.length}}
  <div>
 
+{{#if comments.length}}
  <h5>Comments:</h5>
- {{#each comment as |comment|}}
-        <p>
-            {{comment.comment_info}}
-        </p>
-        <p>
-            Added by: {{user.name}}, {{comment.date_created}}
-        </p>
+<div> 
+    {{#each comments as |comment|}}
+    <p>
+        {{comment.comment_info}}
+    </p>
+    <p>
+        Added by: {{user.name}}, {{format_date comment.date_created}}
+    </p>
 {{/each}}
-</div> 
+</div>
 {{/if}}
 
 {{#if logged_in}}
@@ -22,5 +24,5 @@
 {{> comment this}}
 
 {{/if}}
-
+</div>
 <script src="/js/comment.js"></script>

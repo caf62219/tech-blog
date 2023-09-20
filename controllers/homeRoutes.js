@@ -6,16 +6,7 @@ router.get('/', async (req, res) => {
     try {
       // Get all BlogPost and JOIN with user data
       const blogPostData = await BlogPost.findAll({
-        include: [
-          {
-            model: User,
-            attributes: ['name'],
-          },
-          {
-            model: Comment,
-            attributes: ['comment_info']
-          }
-        ],
+       include: [{ all: true, nested: true }]
       });
   
       // Serialize data so the template can read it
@@ -34,16 +25,11 @@ router.get('/', async (req, res) => {
   router.get('/blogpost/:id', async (req, res) => {
     try {
       const blogpostData = await BlogPost.findByPk(req.params.id, {
-        include: [
-          {
-            model: User,
-            attributes: ['name'],
-          },
-        ],
+        include: [{ all: true, nested: true }]
       });
   
       const blogpost = blogpostData.get({ plain: true });
-  
+  console.log(blogpost)
       res.render('blogpost', {
         ...blogpost,
         logged_in: req.session.logged_in
@@ -67,6 +53,41 @@ router.get('/', async (req, res) => {
       res.render('dashboard', {
         ...user,
         logged_in: true
+      });
+    } catch (err) {
+      res.status(500).json(err);
+    }
+  });
+
+router.get('/dashboard/create-post', withAuth, async (req, res) => {
+    try {
+      // Find the logged in user based on the session ID
+      
+      res.render('addpost', {
+        
+        logged_in: true
+      });
+    } catch (err) {
+      res.status(500).json(err);
+    }
+  });
+  
+  router.get('/dashboard/blogpost/:id', async (req, res) => {
+    try {
+      const blogpostData = await BlogPost.findByPk(req.params.id, {
+        include: [
+          {
+            model: User,
+            attributes: ['name'],
+          },
+        ],
+      });
+  
+      const blogpost = blogpostData.get({ plain: true });
+  
+      res.render('dbblogpost', {
+        ...blogpost,
+        logged_in: req.session.logged_in
       });
     } catch (err) {
       res.status(500).json(err);

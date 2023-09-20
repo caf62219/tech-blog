@@ -30,6 +30,8 @@
     Kyle Jocoy: https://github.com/Kylyote/
     Nedda Elsayed: https://github.com/Lven-Nemsy
     ASK BCS Alex Bradshaw
+    ASK BCS Jon
+    ASK BCS Jerromy Chance
 
       
 # License
