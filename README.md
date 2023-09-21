@@ -1,10 +1,10 @@
 # Tech Blog
 
 # Description
-    -This project involved creating an interactive Tech Blog.
-    -The Tech Blog is deployed through Heroku. 
-    - The user is able to view the current blog posts. 
-    - Once the user logs in then the user is presented with the ability to add comments to posts, add new posts and update posts. 
+    - This project involved creating an interactive Tech Blog.
+    - The Tech Blog is deployed through Heroku. 
+    - The user is able to view the current blog posts on the homepage of the application. 
+    - Once the user logs in, then the user is presented with the ability to add comments to posts, add new posts and update or delete posts. 
        
     
 # Installation
@@ -34,6 +34,8 @@
     ASK BCS Alex Bradshaw
     ASK BCS Jon
     ASK BCS Jerromy Chance
+    TA Jamie Otto
+    Instructor John Young
 
       
 # License
